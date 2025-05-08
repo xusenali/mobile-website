@@ -1,19 +1,23 @@
 import React, { memo, useRef } from 'react'
+import Foter from './Foter'
+import { Link, useNavigate } from 'react-router-dom'
 
 function Header() {
+  const navigate = useNavigate()
 
   function btnMenu() {
-    let btn = document.querySelector('.bx ')
-    let modal = document.querySelector('.modal ')
+    let btn = document.querySelector('.bx')
+    
     btn.classList.toggle('bx-x')
-    if(!btn.classList.contains('bx-x')) {
-      modal.style.right = '-800px'
-    }else{
-       modal.style.right = '0'
+    if (!btn.classList.contains('bx-x')) {
+      navigate('/')
+    } else {
+      navigate('menu')
     }
   }
+
   return (
-    <div className='relative overflow-hidden'>
+    <div >
       <nav className='w-full h-15 flex bg-[#606060] justify-between items-center p-1'>
         <div className='flex'>
           <div className='bg-[url(./assets/lakatsiya.png)] w-6 h-6 bg-contain bg-no-repeat'> </div>
@@ -31,22 +35,7 @@ function Header() {
         </div>
         <i onClick={btnMenu} className='bx  bx-menu-alt-right duration-200 text-4xl'></i>
       </div>
-      <div className='modal w-full h-max shadow-sm p-2 relative right-[-800px] duration-300 ease-in-out my-1'>
-        <div className='flex gap-7 items-center w-full h-15 border-b'>
-        <i className='bx bx-user text-3xl' ></i>
-        <p>Войти в аккаунт</p>
-        </div>
-        <ul className='flex flex-col gap-5 my-3'>
-          <li>Акции</li>
-          <li>О компании</li>
-          <li>Пользовательское соглашение</li>
-          <li>Условия гарантии</li>
-          <li>Ресторан</li>
-          <li>Контакты</li>
-          <li>Поддержка</li>
-          <li>Отследить заказ</li>
-        </ul>
-      </div>
+      
     </div>
   )
 }

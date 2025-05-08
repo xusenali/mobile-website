@@ -4,6 +4,7 @@ import './index.css'
 import App from './App.jsx'
 import { createBrowserRouter , RouterProvider } from 'react-router-dom'
 import Home from './pages/Home.jsx'
+import Menu from './pages/Menu.jsx'
 
 
 
@@ -16,7 +17,10 @@ const router = createBrowserRouter([
           index: true, 
           element: <Home/>
         },
-       
+        {
+          path: 'menu',
+          element: <Menu/>
+        }
 
     ]
     
